@@ -1,6 +1,14 @@
+
+
+
 * {
     margin: 0;
     padding: 0;
+    --board-size: 600px;
+}
+
+body{
+    background-color: darkslategray;
 }
 
 .body-wrapper{
@@ -20,5 +28,28 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+.grid-btns-wrapper button{
+    margin: 0px 5px 0px 5px;
+}
+
+.game-board{
+    display: grid;
+    border: 2px solid gray;
+    margin-top: 10px;
+    width: var(--board-size);
+    height: var(--board-size);  
+    grid-row-gap: 0; 
+    grid-column-gap: 0; 
+    background-color: black;
+}
+
+.cell
+
+.cell-img{
+    object-fit: none;
+    /*width: var(--board-size);
+    height: var(--board-size);*/
 }
