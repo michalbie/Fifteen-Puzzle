@@ -1,0 +1,98 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: darkslategray;
+}
+
+#open-menu-btn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    :hover{
+        cursor: pointer;
+    }
+}
+
+.open-menu-img{
+    width: 64px;
+    height:auto;
+}
+
+.body-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#sidebar{
+    position: absolute;
+    left: -400px;
+    top: 0;
+    width: 20%;
+    height: 100vh;
+    background-color: gray;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: left 0.5s;
+
+    #close-menu-btn{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        :hover{
+            cursor: pointer;
+        }
+    }
+
+    .close-menu-img{
+        width: 32px;
+        height:auto;
+    }
+
+    .preview{
+        width: 200px;
+        height: 200px;
+    }
+    
+    .grid-btns-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .grid-btns-wrapper button{
+        margin: 0px 5px 0px 5px;
+    }
+}
+
+.game-board{
+    display: grid;
+    border: 2px solid gray;
+    margin-top: 10px;
+    width: 600px;
+    height: 600px;  
+    grid-row-gap: 0; 
+    grid-column-gap: 0; 
+    background-color: black;
+}
+
+.cell{
+    /*width: 100%;
+    height: 100%;*/
+}
+
+.cell-img{
+    object-fit: none;
+}

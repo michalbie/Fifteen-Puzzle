@@ -1,4 +1,5 @@
 import * as initializer from "./prepareGame.js"
+import { prepareSidebar } from "./Layout/layoutManager.js"
 
 var boardCells = {
     0: {
@@ -8,5 +9,5 @@ var boardCells = {
     } 
 };
 
-
-initializer.prepareElements(boardCells)
+prepareSidebar();
+initializer.prepareElements(boardCells);

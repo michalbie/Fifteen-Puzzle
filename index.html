@@ -8,16 +8,26 @@
     <script src="./logic/app.js" type="module" defer></script>
 </head>
 <body>
+    <div id="open-menu-btn">
+        <img class="open-menu-img" src="assets/menu_icon.png">
+    </div>
+
     <section class="body-wrapper">
+        <section class="game-board">
+            
+        </section>
+    </section>
+
+    <section id="sidebar" hide="true">
+        <div id="close-menu-btn">
+            <img class="close-menu-img" src="assets/close-button.png">
+        </div>
         <img class="preview" src="assets/myszojelen.jpg">
         <section class="grid-btns-wrapper">
             <button grid="3" class="grid-select-btn">3x3</button>
             <button grid="4" class="grid-select-btn">4x4</button>
             <button grid="5" class="grid-select-btn">5x5</button>
             <button grid="6" class="grid-select-btn">6x6</button>
-        </section>
-        <section class="game-board">
-            
         </section>
     </section>
 </body>

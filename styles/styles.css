@@ -1,55 +1,81 @@
-
-
-
 * {
-    margin: 0;
-    padding: 0;
-    --board-size: 600px;
+  margin: 0;
+  padding: 0;
 }
-
-body{
-    background-color: darkslategray;
+body {
+  background-color: darkslategray;
 }
-
-.body-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+#open-menu-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
-
-.preview{
-    width: 200px;
-    height: 200px;
+#open-menu-btn :hover {
+  cursor: pointer;
 }
-
-.grid-btns-wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 10px;
+.open-menu-img {
+  width: 64px;
+  height: auto;
 }
-
-.grid-btns-wrapper button{
-    margin: 0px 5px 0px 5px;
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
-
-.game-board{
-    display: grid;
-    border: 2px solid gray;
-    margin-top: 10px;
-    width: var(--board-size);
-    height: var(--board-size);  
-    grid-row-gap: 0; 
-    grid-column-gap: 0; 
-    background-color: black;
+#sidebar {
+  position: absolute;
+  left: -400px;
+  top: 0;
+  width: 20%;
+  height: 100vh;
+  background-color: gray;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: left 0.5s;
 }
-
-.cell
-
-.cell-img{
-    object-fit: none;
-    /*width: var(--board-size);
-    height: var(--board-size);*/
+#sidebar #close-menu-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#sidebar #close-menu-btn :hover {
+  cursor: pointer;
+}
+#sidebar .close-menu-img {
+  width: 32px;
+  height: auto;
+}
+#sidebar .preview {
+  width: 200px;
+  height: 200px;
+}
+#sidebar .grid-btns-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+}
+#sidebar .grid-btns-wrapper button {
+  margin: 0px 5px 0px 5px;
+}
+.game-board {
+  display: grid;
+  border: 2px solid gray;
+  margin-top: 10px;
+  width: 600px;
+  height: 600px;
+  grid-row-gap: 0;
+  grid-column-gap: 0;
+  background-color: black;
+}
+.cell {
+  /*width: 100%;
+    height: 100%;*/
+}
+.cell-img {
+  object-fit: none;
 }
