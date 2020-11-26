@@ -1,4 +1,4 @@
-import { updateNextToBlankProperty } from "./boardManager.js"
+import { updateNextToBlankProperty, trySwapCells } from "./boardManager.js"
 import * as randomizator from "./randomizeCells.js"
 
 const prepareElements = (boardCells) => {
@@ -42,6 +42,9 @@ const initializeBoard = (gridSize, boardCells) => {
 
                 let index = (row * gridSize) + column;
                 boardCells[index] = { div: cell, blank:false, nextToBlank: false, cords: {x: column, y: row} }
+                cell.addEventListener("mousedown", () => {
+                    trySwapCells(boardCells, cell)
+                });
 
                 if(row == gridSize-1 && column == gridSize-1){
                     boardCells[index]["blank"] = true;
