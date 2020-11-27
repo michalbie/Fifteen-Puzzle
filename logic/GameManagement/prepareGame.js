@@ -1,13 +1,16 @@
 import { updateNextToBlankProperty, trySwapCells } from "./boardManager.js"
 import * as randomizator from "./randomizeCells.js"
+import { prepareSidebar, hideSidebar } from "../Layout/layoutManager.js"
 
 const prepareElements = (boardCells) => {
+    prepareSidebar();
     const gridButtons = document.querySelectorAll(".grid-select-btn");
     for (let button of gridButtons) {
         button.addEventListener("mousedown", () => {
             boardCells = clearBoardCellsObject(boardCells);
             clearBoard();
             const gridSize = button.getAttribute("grid");
+            hideSidebar();
             initializeBoard(parseInt(gridSize), boardCells);
         })
     }

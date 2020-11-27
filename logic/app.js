@@ -9,5 +9,4 @@ var boardCells = {
     } 
 };
 
-prepareSidebar();
 initializer.prepareElements(boardCells);

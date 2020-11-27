@@ -10,7 +10,6 @@ body {
   background-color: darkslategray;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 #open-menu-btn {
   position: absolute;
@@ -29,10 +28,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  flex: 1;
+  height: 100%;
 }
 #sidebar {
-  position: absolute;
+  position: fixed;
   left: -400px;
   top: 0;
   width: 20%;
@@ -53,27 +53,44 @@ body {
   cursor: pointer;
 }
 #sidebar .close-menu-img {
-  width: 32px;
+  width: 20px;
   height: auto;
 }
 #sidebar .preview {
-  width: 200px;
-  height: 200px;
+  width: 90%;
+  height: auto;
 }
 #sidebar .grid-btns-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 10px;
+  flex: 1;
+  width: 90%;
 }
 #sidebar .grid-btns-wrapper button {
   margin: 0px 5px 0px 5px;
+  margin-top: 5px;
+  color: white;
+  background-color: #313131;
+  padding: 7px;
+  border: 2px solid black;
+}
+#sidebar .grid-btns-wrapper button:hover {
+  cursor: pointer;
+  transform: scale(0.97);
+}
+#sidebar #sidebar-body {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #timer-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
   height: 50px;
 }
 #timer-wrapper .timer-digit-img {
@@ -104,4 +121,44 @@ body {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.info-wrapper {
+  width: 500px;
+  height: 250px;
+  background-color: #161616;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.info-wrapper .info-confirm-btn {
+  margin-top: 20px;
+  padding: 5px;
+}
+.info-wrapper .info {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }

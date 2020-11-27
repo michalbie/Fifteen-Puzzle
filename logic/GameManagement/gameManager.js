@@ -1,5 +1,6 @@
 const createTimer = (boardCells) => {
     deleteOldTimer();
+    console.log(boardCells, document.querySelectorAll(".cell"))
     
     for (let i=0; i<13; i++){
         let img = document.createElement("img")
@@ -37,12 +38,12 @@ const deleteOldTimer = () =>{
 
 const startTimer = (timeFields, boardCells) => {
     let startTime = new Date();
-    let updateCurrentTime = setInterval(() => {
-        updateTimer(startTime, timeFields, boardCells);
+    let updateTimeInterval = setInterval(() => {
+        updateTimer(startTime, timeFields, boardCells, updateTimeInterval);
     }, 10)
 }
 
-const updateTimer = (startTime, timeFields, boardCells) => {
+const updateTimer = (startTime, timeFields, boardCells, updateTimeInterval) => {
     let currentTime = new Date();
     let timeDifference = new Date();
     timeDifference.setTime(currentTime.getTime() - startTime.getTime())
@@ -91,12 +92,43 @@ const updateTimer = (startTime, timeFields, boardCells) => {
     updateSeconds(timeDifference);
     updateMilliseconds(timeDifference);
 
-    checkWinConditions(boardCells);
+    let won = checkWinConditions(boardCells);
+    if(won){
+        clearInterval(updateTimeInterval);
+        showWinInfo(timeDifference)
+    }
 }
 
 
 const checkWinConditions = (boardCells) => {
-    //DODAJ WIN CONDITIONS
+    let divs = document.querySelectorAll(".cell")
+    for(let index in boardCells){
+        if(boardCells[index]['div'] != divs[index]){
+            return false;
+        }
+    }
+    return true;
+}
+
+const showWinInfo = (time) => {
+    let template = document.querySelector("#overlay-info-template");
+    let clone = template.content.cloneNode(true);
+    template.style.display = "block";
+
+    let achievedTime = time.getHours().toString().padStart(2, 0) + ':'
+        + time.getMinutes().toString().padStart(2, 0) + ':'
+        + time.getSeconds().toString().padStart(2, 0) + '.'
+        + time.getMilliseconds().toString().padStart(4, 0)
+    achievedTime.replace('\n', "")
+
+    clone.querySelector(".info").innerHTML = `You won! Your time is: ${achievedTime}`;
+
+    document.body.appendChild(clone);
+
+    document.querySelector(".info-confirm-btn").addEventListener("mousedown", () => {
+        document.querySelector(".overlay").remove()
+    })
+
 }
 
 export { createTimer };
