@@ -1,4 +1,4 @@
-import * as initializer from "./prepareGame.js"
+import * as initializer from "./GameManagement/prepareGame.js"
 import { prepareSidebar } from "./Layout/layoutManager.js"
 
 var boardCells = {

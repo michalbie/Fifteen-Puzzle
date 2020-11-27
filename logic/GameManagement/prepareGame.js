@@ -72,4 +72,6 @@ const clearBoardCellsObject = (boardCells) => {
     return boardCells;
 }
 
+
+
 export { prepareElements }

@@ -4,8 +4,16 @@
     padding: 0;
 }
 
+html{
+    width: 100%;
+    height: 100%;
+}
+
 body{
     background-color: darkslategray;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 #open-menu-btn{
@@ -36,7 +44,7 @@ body{
     left: -400px;
     top: 0;
     width: 20%;
-    height: 100vh;
+    height: 100%;
     background-color: gray;
     padding: 15px;
 
@@ -77,6 +85,20 @@ body{
     }
 }
 
+#timer-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    height: 50px;
+
+    .timer-digit-img{
+        width: 30px;
+        height: 40px;
+    }
+}
+
+
 .game-board{
     display: grid;
     border: 2px solid gray;
@@ -89,10 +111,18 @@ body{
 }
 
 .cell{
-    /*width: 100%;
-    height: 100%;*/
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .cell-img{
     object-fit: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
