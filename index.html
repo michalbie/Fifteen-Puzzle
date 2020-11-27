@@ -11,8 +11,14 @@
     <template id="overlay-info-template">
         <div class="overlay">
             <div class="info-wrapper">
-                <p class="info">LOL</p>
-                <button class="info-confirm-btn">OK</button>
+                <p class="info"></p>
+                <form id="enter-nick-form">
+                    <div>
+                        <label>Enter your nick: </label>
+                        <input id="nick-input" type="text" maxlength="16">
+                    </div>
+                    <input class="info-confirm-btn" type="submit" value="OK">
+                </form>
             </div>
         </div>  
     </template>

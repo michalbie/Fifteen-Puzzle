@@ -1,3 +1,5 @@
+import { handleNickSubmit } from "../scoreboardManager.js"
+
 const createTimer = (boardCells) => {
     deleteOldTimer();
     console.log(boardCells, document.querySelectorAll(".cell"))
@@ -113,22 +115,25 @@ const checkWinConditions = (boardCells) => {
 const showWinInfo = (time) => {
     let template = document.querySelector("#overlay-info-template");
     let clone = template.content.cloneNode(true);
-    template.style.display = "block";
 
     let achievedTime = time.getHours().toString().padStart(2, 0) + ':'
         + time.getMinutes().toString().padStart(2, 0) + ':'
         + time.getSeconds().toString().padStart(2, 0) + '.'
         + time.getMilliseconds().toString().padStart(4, 0)
     achievedTime.replace('\n', "")
-
     clone.querySelector(".info").innerHTML = `You won! Your time is: ${achievedTime}`;
-
     document.body.appendChild(clone);
 
-    document.querySelector(".info-confirm-btn").addEventListener("mousedown", () => {
-        document.querySelector(".overlay").remove()
-    })
+    const form = document.getElementById("enter-nick-form");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let gridSize = Math.sqrt(document.querySelectorAll(".cell").length)
+        handleNickSubmit(document.querySelector("#nick-input").value, achievedTime, gridSize);
+    });
 
+    //document.cookie = `nick2=${achievedTime}-4;secure;`;
 }
+
+
 
 export { createTimer };
