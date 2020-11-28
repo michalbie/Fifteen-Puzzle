@@ -2,7 +2,6 @@ import { handleNickSubmit } from "../scoreboardManager.js"
 
 const createTimer = (boardCells) => {
     deleteOldTimer();
-    console.log(boardCells, document.querySelectorAll(".cell"))
     
     for (let i=0; i<13; i++){
         let img = document.createElement("img")
@@ -132,7 +131,6 @@ const showWinInfo = (time) => {
 const millisecondsToNormalFormat = (milliseconds) => {  
     let absoluteTime = new Date();
     absoluteTime.setTime(milliseconds.getTime() + milliseconds.getTimezoneOffset() * 60 * 1000);
-    console.log(absoluteTime)
     let format = absoluteTime.getHours().toString().padStart(2, 0) + ':'
         + absoluteTime.getMinutes().toString().padStart(2, 0) + ':'
         + absoluteTime.getSeconds().toString().padStart(2, 0) + '.'

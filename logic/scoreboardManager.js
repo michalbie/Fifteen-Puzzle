@@ -86,7 +86,6 @@ const loadScores = () => {
 
     let index = 0;
     while(document.cookie.split(" ")[index]){
-        console.log(index, document.cookie.split(" ")[index])
         let score = document.cookie.split(" ")[index].split("=")[1].split("-")[0]
         let nickname = document.cookie.split(" ")[index].split("=")[0].replaceAll("_", " ")
         let gridSize = document.cookie.split(" ")[index].split("=")[1].split("-")[1].replace(";", "")
@@ -97,7 +96,6 @@ const loadScores = () => {
         index++
     }
 
-    console.log(allScores)
     return allScores;
 }
 

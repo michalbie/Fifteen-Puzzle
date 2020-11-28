@@ -56,9 +56,39 @@ body {
   align-items: center;
   transition: left 0.5s;
 }
-#sidebar .preview {
+#sidebar #sidebar-body {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#sidebar #slider {
+  display: flex;
+  flex-direction: row;
   width: 90%;
-  height: auto;
+  overflow: hidden;
+}
+#sidebar #slider .preview {
+  min-width: 100%;
+}
+#sidebar #arrows-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+#sidebar #arrows-wrapper .arrow-btn {
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  transition: all 0.1s;
+}
+#sidebar #arrows-wrapper .arrow-btn:hover {
+  cursor: pointer;
+  transform: scale(0.95);
 }
 #sidebar .grid-btns-wrapper {
   display: flex;
@@ -79,13 +109,6 @@ body {
 #sidebar .grid-btns-wrapper button:hover {
   cursor: pointer;
   transform: scale(0.97);
-}
-#sidebar #sidebar-body {
-  padding-top: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 #sidebar #show-scoreboard-btn {
   display: flex;

@@ -2,16 +2,18 @@ import { updateNextToBlankProperty, trySwapCells } from "./boardManager.js"
 import * as randomizator from "./randomizeCells.js"
 import { prepareSidebar, hideSidebar } from "../Layout/layoutManager.js"
 import { showScoreboard } from "../scoreboardManager.js"
+import { prepareSliderNavigation } from "../Layout/sliderManager.js"
 
 const prepareElements = (boardCells) => {
     prepareSidebar();
+    prepareSliderNavigation();
     const gridButtons = document.querySelectorAll(".grid-select-btn");
     for (let button of gridButtons) {
         button.addEventListener("mousedown", () => {
             boardCells = clearBoardCellsObject(boardCells);
             clearBoard();
             const gridSize = button.getAttribute("grid");
-            hideSidebar();
+            //hideSidebar();
             initializeBoard(parseInt(gridSize), boardCells);
         })
     }
@@ -41,7 +43,7 @@ const initializeBoard = (gridSize, boardCells) => {
 
                 let innerImage = document.createElement("img")
                 innerImage.setAttribute("class", "cell-img")
-                innerImage.src = document.querySelector(".preview").src
+                innerImage.src = document.querySelector("#slider").querySelectorAll(`[current="true"]`)[0].src
                 let initialSize = innerImage.width;
                 innerImage.width = cell.clientWidth;
                 innerImage.height = cell.clientWidth;

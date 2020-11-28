@@ -64,7 +64,15 @@
             <img class="close-menu-img" src="assets/close-button.png">
         </div>
         <section id="sidebar-body">
-            <img class="preview" src="assets/myszojelen.jpg">
+            <section id="slider">
+                <img current="true" class="preview" src="assets/myszojelen.jpg">
+                <img current="false" class="preview" src="assets/kitten.jpg">
+                <img current="false" class="preview" src="assets/kitten2.jpg">
+            </section>
+            <section id="arrows-wrapper">
+                <div class="arrow-btn" style="mask: url('/assets/left-arrow.svg');"></div>
+                <div class="arrow-btn" style="mask: url('/assets/right-arrow.svg');"></div>
+            </section>
             <section class="grid-btns-wrapper">
                 <button grid="3" class="grid-select-btn">3x3</button>
                 <button grid="4" class="grid-select-btn">4x4</button>
