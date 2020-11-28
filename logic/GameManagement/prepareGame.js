@@ -1,6 +1,7 @@
 import { updateNextToBlankProperty, trySwapCells } from "./boardManager.js"
 import * as randomizator from "./randomizeCells.js"
 import { prepareSidebar, hideSidebar } from "../Layout/layoutManager.js"
+import { showScoreboard } from "../scoreboardManager.js"
 
 const prepareElements = (boardCells) => {
     prepareSidebar();
@@ -14,6 +15,10 @@ const prepareElements = (boardCells) => {
             initializeBoard(parseInt(gridSize), boardCells);
         })
     }
+
+    document.getElementById("show-scoreboard-btn").addEventListener("mousedown", () => {
+        showScoreboard();
+    })
 }
 
 const initializeBoard = (gridSize, boardCells) => {

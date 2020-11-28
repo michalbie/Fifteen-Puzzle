@@ -49,7 +49,6 @@ const updateTimer = (startTime, timeFields, boardCells, updateTimeInterval) => {
     let currentTime = new Date();
     let timeDifference = new Date();
     timeDifference.setTime(currentTime.getTime() - startTime.getTime())
-    timeDifference.setHours(0)
 
     const updateHours = (timeDifference) => {
         let hours = timeDifference.getHours();
@@ -116,11 +115,7 @@ const showWinInfo = (time) => {
     let template = document.querySelector("#overlay-info-template");
     let clone = template.content.cloneNode(true);
 
-    let achievedTime = time.getHours().toString().padStart(2, 0) + ':'
-        + time.getMinutes().toString().padStart(2, 0) + ':'
-        + time.getSeconds().toString().padStart(2, 0) + '.'
-        + time.getMilliseconds().toString().padStart(4, 0)
-    achievedTime.replace('\n', "")
+    let achievedTime = millisecondsToNormalFormat(time);
     clone.querySelector(".info").innerHTML = `You won! Your time is: ${achievedTime}`;
     document.body.appendChild(clone);
 
@@ -128,12 +123,20 @@ const showWinInfo = (time) => {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         let gridSize = Math.sqrt(document.querySelectorAll(".cell").length)
-        handleNickSubmit(document.querySelector("#nick-input").value, achievedTime, gridSize);
+        handleNickSubmit(document.querySelector("#nick-input").value, time.getTime(), gridSize);
     });
+}
 
-    //document.cookie = `nick2=${achievedTime}-4;secure;`;
+const millisecondsToNormalFormat = (milliseconds) => {  
+    let absoluteTime = new Date();
+    absoluteTime.setTime(milliseconds.getTime() + milliseconds.getTimezoneOffset() * 60 * 1000);
+    let format = absoluteTime.getHours().toString().padStart(2, 0) + ':'
+        + absoluteTime.getMinutes().toString().padStart(2, 0) + ':'
+        + absoluteTime.getSeconds().toString().padStart(2, 0) + '.'
+        + absoluteTime.getMilliseconds().toString().padStart(4, 0)
+    return format;
 }
 
 
 
-export { createTimer };
+export { createTimer, millisecondsToNormalFormat };

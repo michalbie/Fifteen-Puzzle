@@ -15,10 +15,32 @@
                 <form id="enter-nick-form">
                     <div>
                         <label>Enter your nick: </label>
-                        <input id="nick-input" type="text" maxlength="16">
+                        <input id="nick-input" type="text" maxlength="16" required>
                     </div>
                     <input class="info-confirm-btn" type="submit" value="OK">
                 </form>
+            </div>
+        </div>  
+    </template>
+
+    <template id="overlay-scoreboard-template">
+        <div class="overlay">
+            <div class="scoreboard-wrapper">
+                <div class="close-menu-btn">
+                    <img class="close-menu-img" src="assets/close-button.png">
+                </div>
+                <section class="scoreboard-body">
+                    <h2>Top 10 scores</h2>
+                    <select id="grid-score-select">
+                        <option value="3">3x3</option>
+                        <option value="4">4x4</option>
+                        <option value="5">5x5</option>
+                        <option value="6">6x6</option>
+                    </select>
+                    <section class="scores-wrapper">
+                    
+                    </section>
+                </section>
             </div>
         </div>  
     </template>
@@ -38,7 +60,7 @@
     </section>
 
     <section id="sidebar" hide="true">
-        <div id="close-menu-btn">
+        <div class="close-menu-btn">
             <img class="close-menu-img" src="assets/close-button.png">
         </div>
         <section id="sidebar-body">
@@ -50,6 +72,10 @@
                 <button grid="6" class="grid-select-btn">6x6</button>
             </section>
         </section>
+
+        <div id="show-scoreboard-btn">
+            <img id="show-scoreboard-img" src="assets/trophy.png">
+        </div>
         
     </section>
 </body>

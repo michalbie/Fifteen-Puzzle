@@ -12,7 +12,7 @@ const prepareSidebar = () => {
         }
     })
 
-    document.getElementById("close-menu-btn").addEventListener("mousedown", () => {
+    document.querySelector(".close-menu-btn").addEventListener("mousedown", () => {
         if(document.getElementById("sidebar").getAttribute("hide") == "false"){
             hideSidebar()
         }
