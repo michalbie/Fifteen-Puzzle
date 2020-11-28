@@ -49,6 +49,8 @@ const updateTimer = (startTime, timeFields, boardCells, updateTimeInterval) => {
     let currentTime = new Date();
     let timeDifference = new Date();
     timeDifference.setTime(currentTime.getTime() - startTime.getTime())
+    let absoluteTime = new Date();
+    absoluteTime.setTime(timeDifference.getTime() + timeDifference.getTimezoneOffset() * 60 * 1000);
 
     const updateHours = (timeDifference) => {
         let hours = timeDifference.getHours();
@@ -88,10 +90,10 @@ const updateTimer = (startTime, timeFields, boardCells, updateTimeInterval) => {
         timeFields['milliseconds'][3].src = `assets/digits/c${string[3]}.gif`;
     }
 
-    updateHours(timeDifference);
-    updateMinutes(timeDifference);
-    updateSeconds(timeDifference);
-    updateMilliseconds(timeDifference);
+    updateHours(absoluteTime);
+    updateMinutes(absoluteTime);
+    updateSeconds(absoluteTime);
+    updateMilliseconds(absoluteTime);
 
     let won = checkWinConditions(boardCells);
     if(won){
@@ -130,6 +132,7 @@ const showWinInfo = (time) => {
 const millisecondsToNormalFormat = (milliseconds) => {  
     let absoluteTime = new Date();
     absoluteTime.setTime(milliseconds.getTime() + milliseconds.getTimezoneOffset() * 60 * 1000);
+    console.log(absoluteTime)
     let format = absoluteTime.getHours().toString().padStart(2, 0) + ':'
         + absoluteTime.getMinutes().toString().padStart(2, 0) + ':'
         + absoluteTime.getSeconds().toString().padStart(2, 0) + '.'
