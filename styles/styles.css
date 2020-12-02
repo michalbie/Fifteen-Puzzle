@@ -17,7 +17,7 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  mask: url('assets/menu_icon.svg');
+  mask: url('../assets/menu_icon.svg');
   background-color: #e4e4e4;
   mask-size: 64px 64px;
   width: 64px;
@@ -33,7 +33,7 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  mask: url('assets/close.svg');
+  mask: url('../assets/close.svg');
   background-color: #e4e4e4;
   mask-size: 24px 24px;
   width: 24px;
