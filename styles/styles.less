@@ -237,13 +237,14 @@ body{
     height: 250px;
     background-color: #044343;
     position: relative;
-    top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: -1000px;
+    
     z-index: 3;
     color: @buttons-color;
     border-radius: 10px;
+    transition: bottom 0.3s;
     
     display: flex;
     justify-content: center;
@@ -277,9 +278,7 @@ body{
         #nick-input{
             margin: 5px;
         }
-    }
-
-    
+    }  
 }
 
 .scoreboard-wrapper{
@@ -317,7 +316,6 @@ body{
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    //overflow: auto;
 
     h2{
         font-size: 36px;
@@ -453,8 +451,6 @@ body{
 
         #show-scoreboard-btn{
             width: 90%;
-            //margin-bottom: 15px;
-            //margin-top: 10px;
         }
     
         #show-scoreboard-img{
@@ -476,7 +472,6 @@ body{
         }
     
         .grid-btns-wrapper button{
-            //height: 50px;
             p{
                 font-size: 12px;
             }
@@ -502,7 +497,6 @@ body{
 
         #show-scoreboard-btn{
             width: 60%;
-            //padding-top: 40px;
         }
     
         #show-scoreboard-img{

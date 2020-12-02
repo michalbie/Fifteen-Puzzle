@@ -1,5 +1,5 @@
 import { hideSidebar } from "./Layout/layoutManager.js";
-import { millisecondsToNormalFormat } from "./GameManagement/gameManager.js";
+import { millisecondsToNormalFormat, removeInfo } from "./GameManagement/gameManager.js";
 
 const handleNickSubmit = (nick, achievedTime, gridSize) => {
 	let cookies = document.cookie;
@@ -7,7 +7,7 @@ const handleNickSubmit = (nick, achievedTime, gridSize) => {
 
 	if (exists == false) {
 		saveRecord(nick, achievedTime, gridSize);
-		document.querySelector(".overlay").remove();
+		removeInfo(document.querySelector(".info-wrapper"), "bottom", 1000)
 	} else {
 		alert(`Provided nick already exists in ${gridSize}x${gridSize} grid scoreboard!`);
 	}
@@ -58,12 +58,14 @@ const createScoreboard = () => {
 
 	let closeButton = scoreboard.querySelector(".close-menu-btn");
 	closeButton.addEventListener("mousedown", () => {
-		scoreboard.style.top = -1000 + "px";
-
-		setTimeout(() => {
-			document.querySelector(".overlay").remove();
-		}, transitionTime * 1000);
-	});
+		removeInfo(scoreboard, "top", -1000)
+    });
+    
+    document.querySelector(".overlay").addEventListener("mousedown", (e) => {
+        if(e.target == document.querySelector(".overlay")){
+            removeInfo(scoreboard, "top", -1000)
+        }
+    })
 
 	let select = scoreboard.querySelector("#grid-score-select");
 	select.addEventListener("change", (event) => {

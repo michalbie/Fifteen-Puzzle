@@ -54,8 +54,6 @@ const slide = (direction) => {
 		let previousIndex = Array.prototype.indexOf.call(images, current) - 1;
 		switchToNeighbor(previousIndex);
 	}
-
-	//document.querySelectorAll(".preview")[1].scrollIntoView({ block: 'end',  behavior: 'smooth' });
 };
 
 export { prepareSliderNavigation };

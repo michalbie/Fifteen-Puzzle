@@ -116,7 +116,23 @@ const showWinInfo = (time) => {
 
 	let achievedTime = millisecondsToNormalFormat(time);
 	clone.querySelector(".info").innerHTML = `You won! Your time is: ${achievedTime}`;
-	document.body.appendChild(clone);
+    document.body.appendChild(clone);
+
+    let infoWrapper = document.querySelector(".info-wrapper");
+    
+    document.querySelector(".info-wrapper .close-menu-btn").addEventListener("mousedown", () => {
+        removeInfo(infoWrapper, "bottom", 1000)
+    })
+
+    document.querySelector(".overlay").addEventListener("mousedown", (e) => {
+        if(e.target == document.querySelector(".overlay")){
+            removeInfo(infoWrapper, "bottom", 1000)
+        }
+    })
+
+    setTimeout(() => {
+		infoWrapper.style.bottom = 0;
+	}, 100);
 
 	const form = document.getElementById("enter-nick-form");
 	form.addEventListener("submit", (e) => {
@@ -126,6 +142,15 @@ const showWinInfo = (time) => {
 	});
 };
 
+const removeInfo = (infoWrapper, animationProperty, propertyValue) => {
+    let transitionTime = getComputedStyle(infoWrapper).transitionDuration.split("s")[0]
+    infoWrapper.style[animationProperty] = propertyValue + "px";
+
+    setTimeout(() => {
+        document.querySelector(".overlay").remove();
+    }, transitionTime * 1000);
+}
+
 const millisecondsToNormalFormat = (milliseconds) => {
 	let absoluteTime = new Date();
 	absoluteTime.setTime(milliseconds.getTime() + milliseconds.getTimezoneOffset() * 60 * 1000);
@@ -133,4 +158,4 @@ const millisecondsToNormalFormat = (milliseconds) => {
 	return format;
 };
 
-export { createTimer, millisecondsToNormalFormat };
+export { createTimer, millisecondsToNormalFormat, removeInfo };
