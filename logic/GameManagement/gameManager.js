@@ -40,7 +40,7 @@ const startTimer = (timeFields, boardCells) => {
 	let startTime = new Date();
 	let updateTimeInterval = setInterval(() => {
 		updateTimer(startTime, timeFields, boardCells, updateTimeInterval);
-	}, 10);
+	}, 1);
 };
 
 const updateTimer = (startTime, timeFields, boardCells, updateTimeInterval) => {
