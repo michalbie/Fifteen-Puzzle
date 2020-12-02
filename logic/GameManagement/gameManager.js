@@ -3,7 +3,7 @@ import { handleNickSubmit } from "../scoreboardManager.js";
 const createTimer = (boardCells) => {
 	deleteOldTimer();
 
-	for (let i = 0; i < 13; i++) {
+	for (let i = 0; i < 12; i++) {
 		let img = document.createElement("img");
 		img.setAttribute("class", "timer-digit-img");
 
@@ -80,12 +80,11 @@ const updateTimer = (startTime, timeFields, boardCells, updateTimeInterval) => {
 	const updateMilliseconds = (timeDifference) => {
 		let milliseconds = timeDifference.getMilliseconds();
 		let string = milliseconds.toString();
-		string = string.padStart(4, 0);
+		string = string.padStart(3, 0);
 
 		timeFields["milliseconds"][0].src = `assets/digits/c${string[0]}.png`;
 		timeFields["milliseconds"][1].src = `assets/digits/c${string[1]}.png`;
 		timeFields["milliseconds"][2].src = `assets/digits/c${string[2]}.png`;
-		timeFields["milliseconds"][3].src = `assets/digits/c${string[3]}.png`;
 	};
 
 	updateHours(absoluteTime);
@@ -154,7 +153,10 @@ const removeInfo = (infoWrapper, animationProperty, propertyValue) => {
 const millisecondsToNormalFormat = (milliseconds) => {
 	let absoluteTime = new Date();
 	absoluteTime.setTime(milliseconds.getTime() + milliseconds.getTimezoneOffset() * 60 * 1000);
-	let format = absoluteTime.getHours().toString().padStart(2, 0) + ":" + absoluteTime.getMinutes().toString().padStart(2, 0) + ":" + absoluteTime.getSeconds().toString().padStart(2, 0) + "." + absoluteTime.getMilliseconds().toString().padStart(4, 0);
+	let format = absoluteTime.getHours().toString().padStart(2, 0) + ":" + 
+		absoluteTime.getMinutes().toString().padStart(2, 0) + ":" + 
+		absoluteTime.getSeconds().toString().padStart(2, 0) + "." + 
+		absoluteTime.getMilliseconds().toString().padStart(3, 0);
 	return format;
 };
 
