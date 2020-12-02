@@ -23,16 +23,17 @@ body{
     position: absolute;
     top: 10px;
     left: 10px;
-    mask: url('../assets/menu_icon.svg');
-    background-color: @buttons-color;
-    mask-size: 64px 64px;
     width: 64px;
     height: 64px;
+    background-image: url(../assets/menu_icon.svg);
+    filter: invert(94%) sepia(5%) saturate(10%) hue-rotate(337deg) brightness(91%) contrast(107%);
 
     :hover{
         cursor: pointer;
     }
 }
+
+
 
 #open-menu-btn:hover{
     cursor: pointer;
@@ -43,9 +44,9 @@ body{
     position: absolute;
     top: 10px;
     right: 10px;
-    mask: url('../assets/close.svg');
-    background-color: @buttons-color;
-    mask-size: 24px 24px;
+    background-image: url('../assets/close.svg');
+    background-size: 24px 24px;
+    filter: invert(94%) sepia(5%) saturate(10%) hue-rotate(337deg) brightness(91%) contrast(107%);
     width: 24px;
     height: 24px;
 }
@@ -86,6 +87,7 @@ body{
 
         .preview{
             min-width:100%;
+            width: 0px;
         }
     }
 
@@ -97,11 +99,21 @@ body{
         margin-top: 10px;
 
         .arrow-btn{
-            background-color: @buttons-color;
             width: 50px;
             height: 50px;
             transition: all .1s;
+            filter: invert(94%) sepia(5%) saturate(10%) hue-rotate(337deg) brightness(91%) contrast(107%);  
         }
+
+        #left-arrow {
+            background-image: url("../assets/left-arrow.svg");
+            
+        }
+
+        #right-arrow {
+            background-image: url("../assets/right-arrow.svg");
+        }
+
         .arrow-btn:hover{
             cursor: pointer;
             transform: scale(0.95);
@@ -397,7 +409,6 @@ body{
         }
 
         .close-menu-btn{
-            mask-size: 15px 15px;
             width: 15px;
             height: 15px;
         }
@@ -459,7 +470,6 @@ body{
         }
 
         .close-menu-btn{
-            mask-size: 24px 24px;
             width: 24px;
             height: 24px;
         }

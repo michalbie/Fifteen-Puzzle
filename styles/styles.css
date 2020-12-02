@@ -17,11 +17,10 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  mask: url('../assets/menu_icon.svg');
-  background-color: #e4e4e4;
-  mask-size: 64px 64px;
   width: 64px;
   height: 64px;
+  background-image: url(../assets/menu_icon.svg);
+  filter: invert(94%) sepia(5%) saturate(10%) hue-rotate(337deg) brightness(91%) contrast(107%);
 }
 #open-menu-btn :hover {
   cursor: pointer;
@@ -33,9 +32,9 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  mask: url('../assets/close.svg');
-  background-color: #e4e4e4;
-  mask-size: 24px 24px;
+  background-image: url('../assets/close.svg');
+  background-size: 24px 24px;
+  filter: invert(94%) sepia(5%) saturate(10%) hue-rotate(337deg) brightness(91%) contrast(107%);
   width: 24px;
   height: 24px;
 }
@@ -72,6 +71,7 @@ body {
 }
 #sidebar #slider .preview {
   min-width: 100%;
+  width: 0px;
 }
 #sidebar #arrows-wrapper {
   display: flex;
@@ -81,10 +81,16 @@ body {
   margin-top: 10px;
 }
 #sidebar #arrows-wrapper .arrow-btn {
-  background-color: #e4e4e4;
   width: 50px;
   height: 50px;
   transition: all 0.1s;
+  filter: invert(94%) sepia(5%) saturate(10%) hue-rotate(337deg) brightness(91%) contrast(107%);
+}
+#sidebar #arrows-wrapper #left-arrow {
+  background-image: url("../assets/left-arrow.svg");
+}
+#sidebar #arrows-wrapper #right-arrow {
+  background-image: url("../assets/right-arrow.svg");
 }
 #sidebar #arrows-wrapper .arrow-btn:hover {
   cursor: pointer;
@@ -328,7 +334,6 @@ body {
     height: auto;
   }
   #sidebar .close-menu-btn {
-    mask-size: 15px 15px;
     width: 15px;
     height: 15px;
   }
@@ -372,7 +377,6 @@ body {
     height: auto;
   }
   #sidebar .close-menu-btn {
-    mask-size: 24px 24px;
     width: 24px;
     height: 24px;
   }
