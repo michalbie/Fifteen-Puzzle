@@ -113,6 +113,13 @@ const createScoresEntries = (scoresList, gridSize) => {
     for(let i = 0; i < limit; i++){
         let entryWrapper = document.createElement("div")
         entryWrapper.setAttribute("class", "score-wrapper")
+        if(i == 0){
+            entryWrapper.style.borderColor = "gold";
+        } else if (i == 1) {
+            entryWrapper.style.borderColor = "silver";
+        } else if (i == 2) {
+            entryWrapper.style.borderColor = "#cd7f32";
+        }
         let entryKey = document.createElement("p")
         let entryValue = document.createElement("p")
         let scoreToTime = new Date();

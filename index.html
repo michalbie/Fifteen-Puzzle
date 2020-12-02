@@ -6,6 +6,8 @@
     <title>Click & Slide</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="./logic/app.js" type="module" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <template id="overlay-info-template">
@@ -15,7 +17,7 @@
                 <form id="enter-nick-form">
                     <div>
                         <label>Enter your nick: </label>
-                        <input id="nick-input" type="text" maxlength="16" required>
+                        <input id="nick-input" type="text" maxlength="12" required>
                     </div>
                     <input class="info-confirm-btn" type="submit" value="OK">
                 </form>
@@ -26,9 +28,10 @@
     <template id="overlay-scoreboard-template">
         <div class="overlay">
             <div class="scoreboard-wrapper">
-                <div class="close-menu-btn">
-                    <img class="close-menu-img" src="assets/close-button.png">
+                <div class="close-btn-wrapper">
+                    <div class="close-menu-btn"></div>
                 </div>
+                
                 <section class="scoreboard-body">
                     <h2>Top 10 scores</h2>
                     <select id="grid-score-select">
@@ -46,23 +49,21 @@
     </template>
 
 
-    <div id="open-menu-btn">
-        <img class="open-menu-img" src="assets/menu_icon.png">
-    </div>
+    <div id="open-menu-btn"></div>
     
     <section class="body-wrapper">
-        <section id="timer-wrapper">
+        <section id="game-section">
+            <section id="timer-wrapper">
 
-        </section>
-        <section class="game-board">
-            
+            </section>
+            <section class="game-board">
+                
+            </section>
         </section>
     </section>
 
     <section id="sidebar" hide="true">
-        <div class="close-menu-btn">
-            <img class="close-menu-img" src="assets/close-button.png">
-        </div>
+        <div class="close-menu-btn"></div>
         <section id="sidebar-body">
             <section id="slider">
                 <img current="true" class="preview" src="assets/myszojelen.jpg">
@@ -74,16 +75,15 @@
                 <div class="arrow-btn" style="mask: url('/assets/right-arrow.svg');"></div>
             </section>
             <section class="grid-btns-wrapper">
-                <button grid="3" class="grid-select-btn">3x3</button>
-                <button grid="4" class="grid-select-btn">4x4</button>
-                <button grid="5" class="grid-select-btn">5x5</button>
-                <button grid="6" class="grid-select-btn">6x6</button>
+                <button grid="3" class="grid-select-btn"><p>3x3</p></button>
+                <button grid="4" class="grid-select-btn"><p>4x4</p></button>
+                <button grid="5" class="grid-select-btn"><p>5x5</p></button>
+                <button grid="6" class="grid-select-btn"><p>6x6</p></button>
             </section>
+            <div id="show-scoreboard-btn">
+                <img id="show-scoreboard-img" src="assets/trophy.png">
+            </div>
         </section>
-
-        <div id="show-scoreboard-btn">
-            <img id="show-scoreboard-img" src="assets/trophy.png">
-        </div>
         
     </section>
 </body>

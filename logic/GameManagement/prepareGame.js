@@ -44,7 +44,7 @@ const initializeBoard = (gridSize, boardCells) => {
                 let innerImage = document.createElement("img")
                 innerImage.setAttribute("class", "cell-img")
                 innerImage.src = document.querySelector("#slider").querySelectorAll(`[current="true"]`)[0].src
-                let initialSize = innerImage.width;
+                //innerImage.style.transform = `scale(${600 / board.width})`
                 innerImage.width = cell.clientWidth;
                 innerImage.height = cell.clientWidth;
                 let nextPosition = { x: (column * cell.offsetWidth), y: (row * cell.offsetHeight) }

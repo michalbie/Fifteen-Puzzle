@@ -1,6 +1,13 @@
 
 const prepareSliderNavigation = () => {
-    document.getElementById('slider').scrollLeft = 0;
+    const slider = document.getElementById('slider');
+
+    slider.scrollLeft = 0;
+    window.addEventListener("resize", () => {
+        let current = document.querySelector("#slider").querySelectorAll(`[current="true"]`)[0];
+        current.scrollIntoView({ block: 'end',  behavior: 'smooth' });
+    })
+
     let navButtons = document.querySelectorAll(".arrow-btn");
     navButtons[0].addEventListener("mousedown", () =>{
         slide("left")
@@ -31,20 +38,23 @@ const slide = (direction) => {
         transportedElement.scrollIntoView({ block: 'end',  behavior: 'smooth' });
     }
 
+    const switchToNeighbor = (index) => {
+        images[index].scrollIntoView({ block: 'end',  behavior: 'smooth' });
+        current.setAttribute("current", false)
+        images[index].setAttribute("current", true)
+    }
+
     if(current == firstImage && direction == "left") {
         loopSlider(firstImage, lastImage, "left")
     } else if(current == lastImage && direction == "right") {
         loopSlider(lastImage, firstImage, "right")
     } else if(direction == "right"){
         let nextIndex = Array.prototype.indexOf.call(images, current) + 1;
-        images[nextIndex].scrollIntoView({ block: 'end',  behavior: 'smooth' });
-        current.setAttribute("current", false)
-        images[nextIndex].setAttribute("current", true)
+        switchToNeighbor(nextIndex);
+        
     } else if(direction == "left") {
         let previousIndex = Array.prototype.indexOf.call(images, current) - 1;
-        images[previousIndex].scrollIntoView({ block: 'end',  behavior: 'smooth' });
-        current.setAttribute("current", false)
-        images[previousIndex].setAttribute("current", true)
+        switchToNeighbor(previousIndex);
     }
 
     //document.querySelectorAll(".preview")[1].scrollIntoView({ block: 'end',  behavior: 'smooth' });

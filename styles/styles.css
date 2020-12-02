@@ -1,55 +1,54 @@
 * {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 html {
   width: 100%;
   height: 100%;
 }
 body {
-  background-image: url("/assets/background-pattern.png");
+  background-color: #212121;
   width: 100%;
   height: 100%;
+  font-family: 'Quicksand', sans-serif;
 }
 #open-menu-btn {
   position: absolute;
   top: 10px;
   left: 10px;
+  mask: url('/assets/menu_icon.svg');
+  background-color: #e4e4e4;
+  mask-size: 64px 64px;
+  width: 64px;
+  height: 64px;
 }
 #open-menu-btn :hover {
   cursor: pointer;
 }
-.open-menu-img {
-  width: 64px;
-  height: auto;
+#open-menu-btn:hover {
+  cursor: pointer;
 }
 .close-menu-btn {
   position: absolute;
   top: 10px;
   right: 10px;
+  mask: url('/assets/close.svg');
+  background-color: #e4e4e4;
+  mask-size: 24px 24px;
+  width: 24px;
+  height: 24px;
 }
-.close-menu-btn :hover {
+.close-menu-btn:hover {
   cursor: pointer;
-}
-.close-menu-img {
-  width: 20px;
-  height: auto;
-}
-.body-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  height: 100%;
 }
 #sidebar {
   position: fixed;
   left: -400px;
   top: 0;
-  width: 20%;
+  width: 80%;
   height: 100%;
-  background-color: gray;
+  background-color: #3a3a3a;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -63,6 +62,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
 }
 #sidebar #slider {
   display: flex;
@@ -81,7 +81,7 @@ body {
   margin-top: 10px;
 }
 #sidebar #arrows-wrapper .arrow-btn {
-  background-color: black;
+  background-color: #e4e4e4;
   width: 50px;
   height: 50px;
   transition: all 0.1s;
@@ -94,17 +94,21 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
   flex: 1;
   width: 90%;
+  height: 100%;
 }
 #sidebar .grid-btns-wrapper button {
   margin: 0px 5px 0px 5px;
   margin-top: 5px;
-  color: white;
-  background-color: #313131;
+  color: #e4e4e4;
+  background-color: #045757;
   padding: 7px;
-  border: 2px solid black;
+  border: 2px solid #044343;
+  transition: all 0.1s;
+  font-size: 15px;
+  flex: 1;
 }
 #sidebar .grid-btns-wrapper button:hover {
   cursor: pointer;
@@ -115,7 +119,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 90%;
-  padding-top: 40px;
+  margin-bottom: 25px;
 }
 #sidebar #show-scoreboard-btn :hover {
   cursor: pointer;
@@ -125,6 +129,14 @@ body {
 #sidebar #show-scoreboard-img {
   width: 50%;
   height: auto;
+}
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
 }
 #timer-wrapper {
   display: flex;
@@ -138,7 +150,7 @@ body {
 }
 .game-board {
   display: grid;
-  border: 2px solid gray;
+  border: 2px solid #e4e4e4;
   margin-top: 10px;
   width: 600px;
   height: 600px;
@@ -177,16 +189,16 @@ body {
   z-index: 2;
 }
 .info-wrapper {
-  width: 500px;
+  width: 30%;
   height: 250px;
-  background-color: #161616;
+  background-color: #044343;
   position: relative;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 3;
-  color: white;
+  color: #e4e4e4;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -209,6 +221,14 @@ body {
   align-items: center;
   flex-direction: column;
 }
+.info-wrapper #enter-nick-form > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.info-wrapper #enter-nick-form #nick-input {
+  margin: 5px;
+}
 .scoreboard-wrapper {
   width: 50%;
   height: 90%;
@@ -218,10 +238,21 @@ body {
   right: 0;
   bottom: 0;
   z-index: 3;
-  color: white;
+  color: #e4e4e4;
   border-radius: 10px;
   top: -1000px;
   transition: top 0.5s;
+  overflow: auto;
+}
+.scoreboard-wrapper .close-btn-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 35px;
+}
+.scoreboard-wrapper .close-btn-wrapper .close-menu-btn {
+  position: fixed;
+  top: auto;
+  right: auto;
 }
 .scoreboard-body {
   display: flex;
@@ -230,8 +261,18 @@ body {
   align-items: center;
   padding: 20px;
 }
+.scoreboard-body h2 {
+  font-size: 36px;
+}
 .scoreboard-body #grid-score-select {
   margin-top: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 2px;
+}
+.scoreboard-body #grid-score-select:hover {
+  cursor: pointer;
 }
 .scoreboard-body .scores-wrapper {
   display: flex;
@@ -239,14 +280,178 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding: 0px 10px 0px 10px;
+  overflow: auto;
 }
 .scoreboard-body .scores-wrapper .score-wrapper {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 10px;
+  align-items: center;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 7px;
+  border: 1px solid #555555;
+  word-wrap: break-word;
 }
 .scoreboard-body .scores-wrapper .score-wrapper p {
   font-size: 20px;
+  word-wrap: break-word;
+}
+@media all and (min-height: 1px) and (min-width: 1px) {
+  #sidebar {
+    width: 150px;
+  }
+  #sidebar #sidebar-body {
+    padding-top: 10px;
+  }
+  #sidebar #slider {
+    width: 70%;
+  }
+  #sidebar #arrows-wrapper .arrow-btn {
+    width: 30px;
+    height: 30px;
+  }
+  #sidebar #show-scoreboard-btn {
+    width: 70%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+  #sidebar #show-scoreboard-img {
+    width: 40%;
+    height: auto;
+  }
+  #sidebar .close-menu-btn {
+    mask-size: 15px 15px;
+    width: 15px;
+    height: 15px;
+  }
+  #sidebar .grid-btns-wrapper {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  #sidebar .grid-btns-wrapper button p {
+    font-size: 10px;
+  }
+  .info-wrapper {
+    width: 80%;
+  }
+  .info-wrapper #enter-nick-form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media all and (min-height: 500px) {
+  #sidebar {
+    width: 150px;
+  }
+  #sidebar #sidebar-body {
+    padding-top: 25px;
+  }
+  #sidebar #slider {
+    width: 80%;
+  }
+  #sidebar #arrows-wrapper .arrow-btn {
+    width: 30px;
+    height: 30px;
+  }
+  #sidebar #show-scoreboard-btn {
+    width: 90%;
+  }
+  #sidebar #show-scoreboard-img {
+    width: 40%;
+    height: auto;
+  }
+  #sidebar .close-menu-btn {
+    mask-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+  }
+  #sidebar .grid-btns-wrapper {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #sidebar .grid-btns-wrapper button p {
+    font-size: 12px;
+  }
+}
+@media all and (min-height: 650px) {
+  #sidebar #slider {
+    width: 90%;
+  }
+  #sidebar #arrows-wrapper .arrow-btn {
+    width: 50px;
+    height: 50px;
+  }
+  #sidebar #show-scoreboard-btn {
+    width: 60%;
+  }
+  #sidebar #show-scoreboard-img {
+    width: 90%;
+    height: auto;
+  }
+  #sidebar .grid-btns-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #sidebar .grid-btns-wrapper button p {
+    font-size: 16px;
+  }
+}
+@media all and (min-width: 1200px) {
+  #sidebar {
+    width: 250px;
+  }
+  .info-wrapper {
+    width: 30%;
+  }
+  .info-wrapper #enter-nick-form > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+@media all and (max-width: 600px) {
+  .game-board {
+    transform: scale(0.5);
+    margin: 0;
+  }
+  #timer-wrapper {
+    margin-bottom: -150px;
+  }
+  #timer-wrapper .timer-digit-img {
+    width: 20px;
+    height: 30px;
+  }
+  .scoreboard-wrapper {
+    width: 90%;
+  }
+}
+@media all and (orientation: portrait) {
+  #game-section {
+    padding-top: 100px;
+  }
+}
+@media all and (max-height: 670px) {
+  .game-board {
+    transform: scale(0.5);
+    margin: 0;
+  }
+  #timer-wrapper {
+    margin-bottom: -150px;
+  }
+  #timer-wrapper .timer-digit-img {
+    width: 20px;
+    height: 30px;
+  }
+  .scoreboard-wrapper {
+    width: 90%;
+  }
 }
