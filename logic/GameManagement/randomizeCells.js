@@ -1,7 +1,7 @@
 import { updateNextToBlankProperty, swapCells } from "./boardManager.js";
 import { createTimer } from "./gameManager.js";
 
-const shufflesNumber = 1;
+const shufflesNumber = 120;
 const shuffleTime = 20;
 
 const shuffleCells = (boardCells, blankCell, initNeighbors) => {
