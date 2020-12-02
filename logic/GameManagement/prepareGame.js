@@ -13,7 +13,7 @@ const prepareElements = (boardCells) => {
             boardCells = clearBoardCellsObject(boardCells);
             clearBoard();
             const gridSize = button.getAttribute("grid");
-            //hideSidebar();
+            hideSidebar();
             initializeBoard(parseInt(gridSize), boardCells);
         })
     }
