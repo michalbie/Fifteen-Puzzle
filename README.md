@@ -1,2 +1,2 @@
-# Click-Slide
-Click and slide game
+# Fifteen Puzzle
+Fifteen puzzle game
