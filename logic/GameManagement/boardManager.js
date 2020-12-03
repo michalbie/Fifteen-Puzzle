@@ -50,7 +50,9 @@ const getBlankCell = (boardCells) => {
 
 const swapCells = (blank, cell2, withAnimation) => {
 	const playSwapAnimation = (blank, cell2) => {
-		cell2["div"].style.transition = getComputedStyle(cell2["div"]).transition;
+		let swapTransition = getComputedStyle(document.querySelector(".cell")).transition
+
+		cell2["div"].style.transition = swapTransition;
 		let targetLeft = blank["div"].offsetLeft - cell2["div"].offsetLeft;
 		let targetTop = blank["div"].offsetTop - cell2["div"].offsetTop;
 
@@ -60,6 +62,7 @@ const swapCells = (blank, cell2, withAnimation) => {
 
 	const swapProperties = (blank, cell2) => {
 		blank["div"].querySelector("img").style.display = "block";
+
 		cell2["div"].style.transition = "0s";
 		cell2["div"].style.left = 0 + "px";
 		cell2["div"].style.top = 0 + "px";
