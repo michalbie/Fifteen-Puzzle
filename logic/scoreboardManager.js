@@ -30,7 +30,6 @@ const checkIfExists = (nick, cookies, gridSize) => {
 };
 
 const saveRecord = (nick, achievedTime, gridSize) => {
-	let expirationDate = new Date(2100, 0, 0, 0, 0, 0, 0);
 	let parseNick = nick.replaceAll(" ", "_");
 	let cookie = `${parseNick}=${achievedTime}-${gridSize}`;
 	console.log(cookie)
