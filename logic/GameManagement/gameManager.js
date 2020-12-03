@@ -38,15 +38,33 @@ const deleteOldTimer = () => {
 
 const startTimer = (timeFields, boardCells) => {
 	let startTime = new Date();
+	let timeDifference = null;
+
 	let updateTimeInterval = setInterval(() => {
-		updateTimer(startTime, timeFields, boardCells, updateTimeInterval);
+		timeDifference = updateTime(startTime, boardCells, updateTimeInterval, updateTimerInterval, timeFields);
+	}, 1);
+	let updateTimerInterval = setInterval(() => {
+		updateTimer(timeFields, timeDifference);
 	}, 15);
 };
 
-const updateTimer = (startTime, timeFields, boardCells, updateTimeInterval) => {
+const updateTime = (startTime, boardCells, updateTimeInterval, updateTimerInterval, timeFields) => {
 	let currentTime = new Date();
 	let timeDifference = new Date();
 	timeDifference.setTime(currentTime.getTime() - startTime.getTime());
+
+	let won = checkWinConditions(boardCells);
+	if (won) {
+		clearInterval(updateTimeInterval);
+		clearInterval(updateTimerInterval);
+		updateTimer(timeFields, timeDifference) //to equalize results
+		showWinInfo(timeDifference);
+	}
+
+	return timeDifference;
+}
+
+const updateTimer = (timeFields, timeDifference) => {
 	let absoluteTime = new Date();
 	absoluteTime.setTime(timeDifference.getTime() + timeDifference.getTimezoneOffset() * 60 * 1000);
 
@@ -91,12 +109,6 @@ const updateTimer = (startTime, timeFields, boardCells, updateTimeInterval) => {
 	updateMinutes(absoluteTime);
 	updateSeconds(absoluteTime);
 	updateMilliseconds(absoluteTime);
-
-	let won = checkWinConditions(boardCells);
-	if (won) {
-		clearInterval(updateTimeInterval);
-		showWinInfo(timeDifference);
-	}
 };
 
 const checkWinConditions = (boardCells) => {

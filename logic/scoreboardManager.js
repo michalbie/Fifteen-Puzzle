@@ -33,6 +33,7 @@ const saveRecord = (nick, achievedTime, gridSize) => {
 	let expirationDate = new Date(2100, 0, 0, 0, 0, 0, 0);
 	let parseNick = nick.replaceAll(" ", "_");
 	let cookie = `${parseNick}=${achievedTime}-${gridSize};secure;expires=${expirationDate.toUTCString()}`;
+	console.log(cookie)
 	document.cookie = cookie;
 };
 
@@ -55,7 +56,6 @@ const createScoreboard = () => {
 	document.body.appendChild(clone);
 
 	let scoreboard = document.querySelector(".scoreboard-wrapper");
-	let transitionTime = getComputedStyle(scoreboard).transitionDuration.split("s")[0];
 
 	let closeButton = scoreboard.querySelector(".close-menu-btn");
 	closeButton.addEventListener("mousedown", () => {
