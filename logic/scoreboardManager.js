@@ -7,7 +7,7 @@ const handleNickSubmit = (nick, achievedTime, gridSize) => {
 
 	if (exists == false) {
 		saveRecord(nick, achievedTime, gridSize);
-		removeInfo(document.querySelector(".info-wrapper"), "bottom", 1000)
+		removeInfo(document.querySelector(".info-wrapper"), "bottom", 1000);
 	} else {
 		alert(`Provided nick already exists in ${gridSize}x${gridSize} grid scoreboard!`);
 	}
@@ -33,7 +33,7 @@ const saveRecord = (nick, achievedTime, gridSize) => {
 	let expirationDate = new Date(2100, 0, 0, 0, 0, 0, 0);
 	let parseNick = nick.replaceAll(" ", "_");
 	let cookie = `${parseNick}=${achievedTime}-${gridSize};secure;expires=${expirationDate.toUTCString()}`;
-	console.log(cookie)
+	console.log(cookie);
 	document.cookie = cookie;
 };
 
@@ -59,14 +59,14 @@ const createScoreboard = () => {
 
 	let closeButton = scoreboard.querySelector(".close-menu-btn");
 	closeButton.addEventListener("mousedown", () => {
-		removeInfo(scoreboard, "top", -1000)
-    });
-    
-    document.querySelector(".overlay").addEventListener("mousedown", (e) => {
-        if(e.target == document.querySelector(".overlay")){
-            removeInfo(scoreboard, "top", -1000)
-        }
-    })
+		removeInfo(scoreboard, "top", -1000);
+	});
+
+	document.querySelector(".overlay").addEventListener("mousedown", (e) => {
+		if (e.target == document.querySelector(".overlay")) {
+			removeInfo(scoreboard, "top", -1000);
+		}
+	});
 
 	let select = scoreboard.querySelector("#grid-score-select");
 	select.addEventListener("change", (event) => {

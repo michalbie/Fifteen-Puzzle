@@ -50,7 +50,7 @@ const getBlankCell = (boardCells) => {
 
 const swapCells = (blank, cell2, withAnimation) => {
 	const playSwapAnimation = (blank, cell2) => {
-		let swapTransition = getComputedStyle(document.querySelector(".cell")).transition
+		let swapTransition = getComputedStyle(document.querySelector(".cell")).transition;
 
 		cell2["div"].style.transition = swapTransition;
 		let targetLeft = blank["div"].offsetLeft - cell2["div"].offsetLeft;

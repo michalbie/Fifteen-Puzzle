@@ -1,12 +1,11 @@
-import * as initializer from "./GameManagement/prepareGame.js"
-import { prepareSidebar } from "./Layout/layoutManager.js"
+import * as initializer from "./GameManagement/prepareGame.js";
 
 var boardCells = {
-    0: {
-        div: null,
-        blank: null,
-        nextToBlank: false
-    } 
+	0: {
+		div: null,
+		blank: null,
+		nextToBlank: false,
+	},
 };
 
 initializer.prepareElements(boardCells);

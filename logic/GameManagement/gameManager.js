@@ -57,12 +57,12 @@ const updateTime = (startTime, boardCells, updateTimeInterval, updateTimerInterv
 	if (won) {
 		clearInterval(updateTimeInterval);
 		clearInterval(updateTimerInterval);
-		updateTimer(timeFields, timeDifference) //to equalize results
+		updateTimer(timeFields, timeDifference); //to equalize results
 		showWinInfo(timeDifference);
 	}
 
 	return timeDifference;
-}
+};
 
 const updateTimer = (timeFields, timeDifference) => {
 	let absoluteTime = new Date();
@@ -127,21 +127,21 @@ const showWinInfo = (time) => {
 
 	let achievedTime = millisecondsToNormalFormat(time);
 	clone.querySelector(".info").innerHTML = `You won! Your time is: ${achievedTime}`;
-    document.body.appendChild(clone);
+	document.body.appendChild(clone);
 
-    let infoWrapper = document.querySelector(".info-wrapper");
-    
-    document.querySelector(".info-wrapper .close-menu-btn").addEventListener("mousedown", () => {
-        removeInfo(infoWrapper, "bottom", 1000)
-    })
+	let infoWrapper = document.querySelector(".info-wrapper");
 
-    document.querySelector(".overlay").addEventListener("mousedown", (e) => {
-        if(e.target == document.querySelector(".overlay")){
-            removeInfo(infoWrapper, "bottom", 1000)
-        }
-    })
+	document.querySelector(".info-wrapper .close-menu-btn").addEventListener("mousedown", () => {
+		removeInfo(infoWrapper, "bottom", 1000);
+	});
 
-    setTimeout(() => {
+	document.querySelector(".overlay").addEventListener("mousedown", (e) => {
+		if (e.target == document.querySelector(".overlay")) {
+			removeInfo(infoWrapper, "bottom", 1000);
+		}
+	});
+
+	setTimeout(() => {
 		infoWrapper.style.bottom = 0;
 	}, 100);
 
@@ -154,21 +154,18 @@ const showWinInfo = (time) => {
 };
 
 const removeInfo = (infoWrapper, animationProperty, propertyValue) => {
-    let transitionTime = getComputedStyle(infoWrapper).transitionDuration.split("s")[0]
-    infoWrapper.style[animationProperty] = propertyValue + "px";
+	let transitionTime = getComputedStyle(infoWrapper).transitionDuration.split("s")[0];
+	infoWrapper.style[animationProperty] = propertyValue + "px";
 
-    setTimeout(() => {
-        document.querySelector(".overlay").remove();
-    }, transitionTime * 1000);
-}
+	setTimeout(() => {
+		document.querySelector(".overlay").remove();
+	}, transitionTime * 1000);
+};
 
 const millisecondsToNormalFormat = (milliseconds) => {
 	let absoluteTime = new Date();
 	absoluteTime.setTime(milliseconds.getTime() + milliseconds.getTimezoneOffset() * 60 * 1000);
-	let format = absoluteTime.getHours().toString().padStart(2, 0) + ":" + 
-		absoluteTime.getMinutes().toString().padStart(2, 0) + ":" + 
-		absoluteTime.getSeconds().toString().padStart(2, 0) + "." + 
-		absoluteTime.getMilliseconds().toString().padStart(3, 0);
+	let format = absoluteTime.getHours().toString().padStart(2, 0) + ":" + absoluteTime.getMinutes().toString().padStart(2, 0) + ":" + absoluteTime.getSeconds().toString().padStart(2, 0) + "." + absoluteTime.getMilliseconds().toString().padStart(3, 0);
 	return format;
 };
 
