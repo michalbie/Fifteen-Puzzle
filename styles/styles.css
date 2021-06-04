@@ -116,6 +116,7 @@ body {
 	transition: all 0.1s;
 	font-size: 15px;
 	flex: 1;
+	border-radius: 0.7em;
 }
 #sidebar .grid-btns-wrapper button:hover {
 	cursor: pointer;
